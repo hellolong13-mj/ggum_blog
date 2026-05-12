@@ -86,6 +86,37 @@ const base = import.meta.env.BASE_URL;
 				padding: 0;
 			}
 
+			/* 햄버거 버튼 (모바일에서만 표시) */
+			.menu-toggle {
+				display: none;
+				background: transparent;
+				border: none;
+				cursor: pointer;
+				padding: 8px;
+				width: 40px;
+				height: 40px;
+				flex-direction: column;
+				justify-content: center;
+				gap: 5px;
+			}
+			.menu-toggle span {
+				display: block;
+				width: 24px;
+				height: 2.5px;
+				background: var(--text-dark);
+				border-radius: 2px;
+				transition: transform var(--transition), opacity var(--transition);
+			}
+			.landing-nav.menu-open .menu-toggle span:nth-child(1) {
+				transform: translateY(7.5px) rotate(45deg);
+			}
+			.landing-nav.menu-open .menu-toggle span:nth-child(2) {
+				opacity: 0;
+			}
+			.landing-nav.menu-open .menu-toggle span:nth-child(3) {
+				transform: translateY(-7.5px) rotate(-45deg);
+			}
+
 			.nav-links a {
 				text-decoration: none;
 				color: var(--text-dark);
@@ -702,9 +733,39 @@ const base = import.meta.env.BASE_URL;
 			@media (max-width: 768px) {
 				.landing-nav {
 					padding: 14px 20px;
+					flex-wrap: wrap;
+				}
+				.menu-toggle {
+					display: flex;
 				}
 				.nav-links {
 					display: none;
+					width: 100%;
+					flex-direction: column;
+					gap: 0;
+					margin-top: 14px;
+					padding-top: 14px;
+					border-top: 1px solid rgba(74, 55, 40, 0.08);
+				}
+				.landing-nav.menu-open .nav-links {
+					display: flex;
+				}
+				.landing-nav.menu-open {
+					background: rgba(255, 253, 247, 0.98);
+					backdrop-filter: blur(8px);
+					box-shadow: 0 2px 16px rgba(74, 55, 40, 0.08);
+				}
+				.nav-links li {
+					width: 100%;
+				}
+				.nav-links a {
+					display: block;
+					padding: 12px 4px;
+					font-size: 1rem;
+				}
+				.nav-links .nav-cta {
+					margin-top: 8px;
+					text-align: center;
 				}
 				section {
 					padding: 70px 20px;
@@ -754,6 +815,11 @@ const base = import.meta.env.BASE_URL;
 	<body>
 		<nav class="landing-nav" id="navbar">
 			<div class="nav-logo"><a href={base}>THE <span>꿈자람교실</span></a></div>
+			<button class="menu-toggle" id="menuToggle" aria-label="메뉴 열기" aria-expanded="false">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
 			<ul class="nav-links">
 				<li><a href="#about">소개</a></li>
 				<li><a href="#programs">프로그램</a></li>
@@ -933,6 +999,23 @@ const base = import.meta.env.BASE_URL;
 				} else {
 					navbar.classList.remove('scrolled');
 				}
+			});
+
+			// 모바일 햄버거 메뉴 토글
+			const menuToggle = document.getElementById('menuToggle');
+			menuToggle.addEventListener('click', () => {
+				const isOpen = navbar.classList.toggle('menu-open');
+				menuToggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+				menuToggle.setAttribute('aria-label', isOpen ? '메뉴 닫기' : '메뉴 열기');
+			});
+
+			// 링크 클릭 시 메뉴 닫기
+			navbar.querySelectorAll('.nav-links a').forEach((link) => {
+				link.addEventListener('click', () => {
+					navbar.classList.remove('menu-open');
+					menuToggle.setAttribute('aria-expanded', 'false');
+					menuToggle.setAttribute('aria-label', '메뉴 열기');
+				});
 			});
 
 			const fadeEls = document.querySelectorAll('.fade-in');
