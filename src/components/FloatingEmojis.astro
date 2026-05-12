@@ -1,14 +1,17 @@
 ---
-// 모든 페이지의 배경에 부드럽게 떠다니는 이모지 (뷰포트 고정)
+// 모든 페이지의 배경에 부드럽게 떠다니는 이모지 (뷰포트 고정, 불규칙 배치)
 ---
 
 <div class="floating-emojis" aria-hidden="true">
 	<span class="emo emo-1">🌱</span>
 	<span class="emo emo-2">⭐</span>
-	<span class="emo emo-3">💛</span>
-	<span class="emo emo-4">✨</span>
-	<span class="emo emo-5">🌼</span>
-	<span class="emo emo-6">🎈</span>
+	<span class="emo emo-3">🌸</span>
+	<span class="emo emo-4">💛</span>
+	<span class="emo emo-5">✨</span>
+	<span class="emo emo-6">🦋</span>
+	<span class="emo emo-7">🌼</span>
+	<span class="emo emo-8">🌟</span>
+	<span class="emo emo-9">🎈</span>
 </div>
 
 <style>
@@ -24,45 +27,74 @@
 	}
 	.emo {
 		position: absolute;
-		opacity: 0.32;
 		animation: floatY 6s ease-in-out infinite;
 		user-select: none;
 	}
 	.emo-1 {
-		top: 8%;
+		top: 6%;
 		left: 3%;
 		font-size: 1.9rem;
+		opacity: 0.32;
 		animation-delay: 0s;
 	}
 	.emo-2 {
-		top: 16%;
-		right: 4%;
-		font-size: 1.6rem;
+		top: 13%;
+		right: 5%;
+		font-size: 1.5rem;
+		opacity: 0.28;
 		animation-delay: 1.2s;
 	}
 	.emo-3 {
-		top: 42%;
-		left: 2%;
-		font-size: 1.8rem;
-		animation-delay: 2.4s;
+		top: 22%;
+		left: 6.5%;
+		font-size: 1.4rem;
+		opacity: 0.26;
+		animation-delay: 3.4s;
+		animation-duration: 7s;
 	}
 	.emo-4 {
-		top: 52%;
-		right: 3%;
-		font-size: 1.5rem;
+		top: 33%;
+		right: 2%;
+		font-size: 1.7rem;
+		opacity: 0.3;
 		animation-delay: 0.6s;
 	}
 	.emo-5 {
-		top: 75%;
-		left: 4%;
-		font-size: 1.7rem;
-		animation-delay: 1.8s;
+		top: 44%;
+		left: 2%;
+		font-size: 1.6rem;
+		opacity: 0.28;
+		animation-delay: 2.2s;
 	}
 	.emo-6 {
-		top: 82%;
-		right: 5%;
+		top: 55%;
+		right: 7%;
+		font-size: 1.5rem;
+		opacity: 0.26;
+		animation-delay: 4s;
+		animation-duration: 8s;
+	}
+	.emo-7 {
+		top: 65%;
+		left: 5%;
+		font-size: 1.8rem;
+		opacity: 0.32;
+		animation-delay: 1.5s;
+	}
+	.emo-8 {
+		top: 76%;
+		right: 3.5%;
 		font-size: 1.4rem;
-		animation-delay: 3s;
+		opacity: 0.28;
+		animation-delay: 2.8s;
+	}
+	.emo-9 {
+		top: 86%;
+		left: 3%;
+		font-size: 1.65rem;
+		opacity: 0.3;
+		animation-delay: 3.6s;
+		animation-duration: 7s;
 	}
 
 	@keyframes floatY {
@@ -77,17 +109,22 @@
 
 	@media (max-width: 720px) {
 		.emo {
-			opacity: 0.22;
+			opacity: 0.2 !important;
 		}
 		.emo-1,
-		.emo-3,
-		.emo-5 {
-			font-size: 1.3rem;
+		.emo-4,
+		.emo-7 {
+			font-size: 1.35rem;
 		}
 		.emo-2,
-		.emo-4,
-		.emo-6 {
-			font-size: 1.15rem;
+		.emo-5,
+		.emo-9 {
+			font-size: 1.2rem;
+		}
+		.emo-3,
+		.emo-6,
+		.emo-8 {
+			font-size: 1.1rem;
 		}
 	}
 </style>
