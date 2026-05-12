@@ -1,0 +1,115 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import FloatingEmojis from '../components/FloatingEmojis.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+
+const formSrc =
+	'https://docs.google.com/forms/d/e/1FAIpQLSdhPQH7KLb8R7Ys83DinVEz1Kdq8X3GDZkcfgF2MdUlX4nhOQ/viewform?embedded=true';
+---
+
+<!doctype html>
+<html lang="ko">
+	<head>
+		<BaseHead
+			title={`비밀 질문하기 · ${SITE_TITLE}`}
+			description="익명으로 편하게 질문을 남겨주세요. 답변은 원하실 때에만 받으시면 됩니다."
+		/>
+		<style>
+			main {
+				position: relative;
+				z-index: 1;
+				width: 760px;
+				max-width: calc(100% - 2em);
+				margin: 0 auto;
+				padding: 2em 1em 3em;
+			}
+			.page-title {
+				font-size: 1.85em;
+				margin-bottom: 0.3em;
+				color: rgb(var(--gray-dark));
+			}
+			.page-desc {
+				color: rgb(var(--gray-dark));
+				line-height: 1.75;
+				margin-bottom: 0.6em;
+			}
+			.notice {
+				background: rgba(255, 171, 112, 0.12);
+				border: 1px solid rgba(255, 140, 66, 0.25);
+				border-radius: 12px;
+				padding: 1em 1.2em;
+				margin: 1.5em 0;
+				color: rgb(var(--gray-dark));
+				font-size: 0.95em;
+				line-height: 1.7;
+			}
+			.notice strong {
+				color: var(--accent);
+			}
+			.form-wrap {
+				background: white;
+				border-radius: 16px;
+				padding: 0.6em;
+				box-shadow: 0 4px 20px rgba(74, 55, 40, 0.1);
+				margin-top: 0.8em;
+				overflow: hidden;
+			}
+			.form-wrap iframe {
+				display: block;
+				width: 100%;
+				min-height: 900px;
+				border: 0;
+				border-radius: 12px;
+			}
+			.fallback {
+				text-align: center;
+				margin-top: 1.2em;
+				color: rgb(var(--gray));
+				font-size: 0.92em;
+			}
+			.fallback a {
+				color: var(--accent);
+				font-weight: 600;
+				text-decoration: none;
+			}
+			.fallback a:hover {
+				text-decoration: underline;
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<FloatingEmojis />
+		<main>
+			<h1 class="page-title">비밀 질문하기</h1>
+			<p class="page-desc">
+				궁금하신 점을 편하게 남겨주세요. 익명으로도 작성 가능하며, 답변을 원하실 때에만 연락
+				방법을 함께 적어주시면 됩니다.
+			</p>
+
+			<div class="notice">
+				💡 <strong>안내</strong> · 보내주신 질문은 운영자만 확인합니다. 자주 들어오는
+				질문은 추후 FAQ로 정리되어 다른 분들께도 도움이 될 수 있습니다 (개인 정보나 답변
+				내용은 공개되지 않습니다).
+			</div>
+
+			<div class="form-wrap">
+				<iframe src={formSrc} title="꿈자람교실 비밀 질문하기 폼" loading="lazy">
+					로드 중…
+				</iframe>
+			</div>
+
+			<p class="fallback">
+				폼이 보이지 않으시면
+				<a
+					href="https://docs.google.com/forms/d/e/1FAIpQLSdhPQH7KLb8R7Ys83DinVEz1Kdq8X3GDZkcfgF2MdUlX4nhOQ/viewform"
+					target="_blank"
+					rel="noopener">새 창에서 열기</a
+				>
+			</p>
+		</main>
+		<Footer />
+	</body>
+</html>
