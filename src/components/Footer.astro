@@ -1,0 +1,43 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<div class="info">
+		<p class="title"><strong>THE 꿈자람교실</strong> · 아이의 꿈이 자라는 곳</p>
+		<p>📍 전북특별자치도 군산시 신평안길 37 1층</p>
+		<p>📞 <a href="tel:010-2825-4554">010-2825-4554</a> · 🕐 월–금 09:00–18:00 (토요일 오전 탄력 운영)</p>
+		<p>
+			<a href="https://open.kakao.com/o/gOHCcFki" target="_blank" rel="noopener">카카오톡 문의</a>
+		</p>
+	</div>
+	<p class="copyright">&copy; {today.getFullYear()} THE 꿈자람교실. All rights reserved.</p>
+</footer>
+<style>
+	footer {
+		padding: 2em 1em 4em 1em;
+		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		color: rgb(var(--gray-dark));
+		text-align: center;
+	}
+	.info p {
+		margin: 0.3em 0;
+		font-size: 0.95em;
+	}
+	.info .title {
+		font-size: 1.05em;
+		margin-bottom: 0.6em;
+	}
+	footer a {
+		color: var(--accent);
+		text-decoration: none;
+	}
+	footer a:hover {
+		text-decoration: underline;
+	}
+	.copyright {
+		margin-top: 1.2em;
+		font-size: 0.85em;
+		color: rgb(var(--gray));
+	}
+</style>
