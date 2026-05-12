@@ -1,6 +1,5 @@
 ---
-// 배경에 떠다니는 이모지 (헤더 아래 ~600px 영역)
-// 너무 많이 두면 난잡해 보이므로 5개로 시작
+// 모든 페이지의 배경에 부드럽게 떠다니는 이모지 (뷰포트 고정)
 ---
 
 <div class="floating-emojis" aria-hidden="true">
@@ -9,54 +8,61 @@
 	<span class="emo emo-3">💛</span>
 	<span class="emo emo-4">✨</span>
 	<span class="emo emo-5">🌼</span>
+	<span class="emo emo-6">🎈</span>
 </div>
 
 <style>
 	.floating-emojis {
-		position: absolute;
-		top: 60px;
+		position: fixed;
+		top: 70px;
 		left: 0;
 		right: 0;
-		height: 540px;
+		bottom: 0;
 		pointer-events: none;
 		overflow: hidden;
 		z-index: 0;
 	}
 	.emo {
 		position: absolute;
-		opacity: 0.28;
+		opacity: 0.32;
 		animation: floatY 6s ease-in-out infinite;
 		user-select: none;
 	}
 	.emo-1 {
 		top: 8%;
-		left: 6%;
-		font-size: 1.8rem;
+		left: 3%;
+		font-size: 1.9rem;
 		animation-delay: 0s;
 	}
 	.emo-2 {
-		top: 14%;
-		right: 8%;
-		font-size: 1.5rem;
+		top: 16%;
+		right: 4%;
+		font-size: 1.6rem;
 		animation-delay: 1.2s;
 	}
 	.emo-3 {
-		top: 38%;
-		left: 4%;
-		font-size: 1.7rem;
+		top: 42%;
+		left: 2%;
+		font-size: 1.8rem;
 		animation-delay: 2.4s;
 	}
 	.emo-4 {
-		top: 50%;
-		right: 5%;
-		font-size: 1.4rem;
+		top: 52%;
+		right: 3%;
+		font-size: 1.5rem;
 		animation-delay: 0.6s;
 	}
 	.emo-5 {
-		top: 70%;
-		left: 9%;
-		font-size: 1.6rem;
+		top: 75%;
+		left: 4%;
+		font-size: 1.7rem;
 		animation-delay: 1.8s;
+	}
+	.emo-6 {
+		top: 82%;
+		right: 5%;
+		font-size: 1.4rem;
+		animation-delay: 3s;
 	}
 
 	@keyframes floatY {
@@ -79,7 +85,8 @@
 			font-size: 1.3rem;
 		}
 		.emo-2,
-		.emo-4 {
+		.emo-4,
+		.emo-6 {
 			font-size: 1.15rem;
 		}
 	}
